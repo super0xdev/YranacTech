@@ -1414,7 +1414,7 @@
       <div class="container-large position-relative">
         <div class="max-width-1200 margin-centered">
           <div class="flexbox gap-40 align-center is-tablet-vertical">
-            <div class="max-width-575 tablet-center">
+            <div class="max-width-1200 tablet-center">
               <div class="margin-box bottom-20">
                 <div class="flexbox gap-10 align-center tablet-justify-center">
                   <div class="flexbox w-embed">
@@ -1464,310 +1464,6 @@
                   class="button-main button-new w-inline-block"
                   ><div>View All Case Studies</div></a
                 >
-              </div>
-            </div>
-            <div class="max-width-560 center">
-              <div
-                class="flexbox space-between flex-align-top gap-40 is-tablet-vertical"
-              >
-                <div class="form-wrapper shadow">
-                  <div class="w-embed w-script">
-                    <div id="mfContainer">
-                      <div>
-                        <script src="//resources.canarytechnologies.com/js/forms2/js/forms2.min.js"></script>
-                      </div>
-                    </div>
-                    <div>
-                      <script
-                        src="//js.chilipiper.com/marketing.js"
-                        type="text/javascript"
-                      ></script>
-                      <script>
-                        // <![CDATA[
-                        var config = {
-                          instanceHost: "//resources.canarytechnologies.com",
-                          munchkinId: "753-LTW-752",
-                          formidStack: [1137, 1151],
-                          onFinalSuccess: function (vals, thankYouURL) {
-                            let lead = vals;
-                            cpPreloader("setLead", lead);
-                            cpPreloader("submit");
-                            jQuery("#mfContainer").hide();
-                            jQuery("#confirmform").css("display", "block");
-                            dataLayer.push({ event: "marketoDemoFormSubmit2" });
-                            return false;
-                          },
-                          insertInsideSelector: "#mfContainer",
-                        };
-                        var injectMktoForm = function (
-                          parentEl,
-                          insertBeforeEl,
-                          instanceHost,
-                          munchkinId,
-                          formid,
-                          onReady
-                        ) {
-                          var formEl = document.createElement("FORM");
-                          formEl.id = "mktoForm_" + formid;
-                          try {
-                            parentEl.insertBefore(formEl, insertBeforeEl);
-                          } catch (e) {
-                            parentEl.appendChild(formEl);
-                          }
-                          MktoForms2.loadForm.apply(
-                            MktoForms2,
-                            Array.prototype.slice.apply(arguments, [2])
-                          );
-                        };
-                        var ejectElement = function (formEl) {
-                          formEl.parentNode.removeChild(formEl);
-                        };
-                        var arrayPushGet = function (ary, pushable) {
-                          return ary[ary.push(pushable) - 1];
-                        };
-                        var startFormId = +document.location.hash.substring(1),
-                          startFormIndex = Math.max(
-                            config.formidStack.indexOf(startFormId),
-                            0
-                          );
-                        config.formidStack =
-                          config.formidStack.slice(startFormIndex);
-                        var formParentEl =
-                            document.querySelector(
-                              config.insertInsideSelector
-                            ) || document.body,
-                          formEl =
-                            formParentEl.querySelector(
-                              config.insertBeforeSelector
-                            ) || null,
-                          formidInitialCount = config.formidStack.length,
-                          formElStack = [],
-                          formid;
-                        var nextForm = function (values, thankYouURL) {
-                          if ((formid = config.formidStack.shift())) {
-                            injectMktoForm(
-                              formParentEl,
-                              formEl,
-                              config.instanceHost,
-                              config.munchkinId,
-                              formid,
-                              function (form) {
-                                if (formEl) {
-                                  ejectElement(formElStack.shift());
-                                  form.addHiddenFields({
-                                    Email: values.Email,
-                                    FirstName: values.FirstName,
-                                    LastName: values.LastName,
-                                    Company: values.Company,
-                                  });
-                                  dataLayer.push({
-                                    event: "marketoDemoFormSubmit1",
-                                  });
-                                }
-                                formEl = arrayPushGet(
-                                  formElStack,
-                                  form.getFormElem()[0]
-                                );
-                                formParentEl = formEl.parentNode;
-                                form.onSuccess(
-                                  config.formidStack.length
-                                    ? nextForm
-                                    : config.onFinalSuccess
-                                );
-                              }
-                            );
-                            return false;
-                          }
-                        };
-                        nextForm();
-                        // ]]>
-                      </script>
-                      <script>
-                        // <![CDATA[
-                        var checkboxGroups = [
-                          {
-                            fieldNames: [
-                              "Interested_Contactless_Check_In__c",
-                              "Interested_Contactless_Check_Out__c",
-                              "Interested_Digital_Authorizations__c",
-                              "Interested_Digital_Contracts__c",
-                              "Interested_Digital_Tipping__c",
-                              "Interested_Dynamic_Upsells__c",
-                              "Interested_Guest_Messages__c",
-                            ],
-                            minChecked: 1,
-                            maxChecked: 7,
-                            minMessage: "You must check at least one product.",
-                          },
-                        ];
-                        MktoForms2.whenReady(function (form) {
-                          var formId = form.getId();
-                          if (formid == 1151) {
-                            form.onSubmit(function (form) {
-                              let localOffSet = 0,
-                                date = new Date();
-                              day = date.getDay();
-                              let hasDST =
-                                Math.max(
-                                  new Date(
-                                    date.getFullYear(),
-                                    0,
-                                    1
-                                  ).getTimezoneOffset(),
-                                  new Date(
-                                    date.getFullYear(),
-                                    6,
-                                    1
-                                  ).getTimezoneOffset()
-                                ) !== date.getTimezoneOffset();
-                              hasDST ? (localOffSet = -7) : (localOffSet = -8);
-                              let UTCHour = date.getUTCHours();
-                              let localTime = UTCHour + localOffSet;
-                              if (localTime < 0) {
-                                localTime = localTime + 24;
-                              }
-                              if (
-                                localTime >= 6 &&
-                                localTime < 16 &&
-                                day <= 5
-                              ) {
-                                var demoTimeSub = "bizyes";
-                              } else {
-                                var demoTimeSub = "bizno";
-                              }
-                              let tz =
-                                Intl.DateTimeFormat().resolvedOptions()
-                                  .timeZone;
-                              var vals = form.vals();
-                              var checkin =
-                                vals.Interested_Contactless_Check_In__c;
-                              var checkout =
-                                vals.Interested_Contactless_Check_Out__c;
-                              var authorizations =
-                                vals.Interested_Digital_Authorizations__c;
-                              var contracts =
-                                vals.Interested_Digital_Contracts__c;
-                              var tipping = vals.Interested_Digital_Tipping__c;
-                              var upsells = vals.Interested_Dynamic_Upsells__c;
-                              var messaging = vals.Interested_Guest_Messages__c;
-                              form.addHiddenFields({
-                                DemoRequestTime__c: demoTimeSub,
-                                cBCPInterestedCheckin: checkin,
-                                cBCPInterestedCheckou: checkout,
-                                cBCPInterestedDigitalAuthorizations:
-                                  authorizations,
-                                cBCPInterestedDigitalContracts: contracts,
-                                cBCPInterestedDigitalTipping: tipping,
-                                cBCPInterestedDynamicUpsells: upsells,
-                                cBCPInterestedGuestMessages: messaging,
-                                Demo_Timezone__c: tz,
-                              });
-                            });
-                            var formEl = form.getFormElem()[0],
-                              arrayify = getSelection.call.bind([].slice);
-                            checkboxGroups.forEach(function (group) {
-                              var groupEls = formEl.querySelectorAll(
-                                "#" + group.fieldNames.join(",#")
-                              );
-                              arrayify(groupEls).forEach(function (el) {
-                                el.addEventListener("click", function (e) {
-                                  var numChecked = arrayify(groupEls).filter(
-                                    function (itm) {
-                                      return itm.checked;
-                                    }
-                                  ).length;
-                                  arrayify(groupEls).forEach(function (el) {
-                                    el.disabled =
-                                      numChecked == group.maxChecked &&
-                                      !el.checked;
-                                  });
-                                });
-                              });
-                            });
-                            form.onValidate(function (nativeValid) {
-                              if (!nativeValid) return;
-                              checkboxGroups.forEach(function (group) {
-                                form.submittable(false);
-                                var groupEls = formEl.querySelectorAll(
-                                    "#" + group.fieldNames.join(",#")
-                                  ),
-                                  numChecked = arrayify(groupEls).filter(
-                                    function (itm) {
-                                      return itm.checked;
-                                    }
-                                  ).length;
-                                if (numChecked < group.minChecked) {
-                                  form.showErrorMessage(
-                                    group.minMessage,
-                                    MktoForms2.$(groupEls[groupEls.length - 1])
-                                  );
-                                } else {
-                                  form.submittable(true);
-                                }
-                              });
-                            });
-                          }
-                        });
-                        // ]]>
-                      </script>
-                    </div>
-                    <div id="confirmform" style="display: none">
-                      <h3 style="color: #0890ff; text-align: center">
-                        Thank You for Requesting a Demo!
-                      </h3>
-                      <p
-                        class="s2-p sp-product sp-about"
-                        style="text-align: center"
-                      >
-                        In the meantime, check out the
-                        <a
-                          style="color: #0890ff"
-                          href="https://www.canarytechnologies.com/blog"
-                          >Blog</a
-                        >
-                        for helpful hotel technology tips and expert advice.
-                      </p>
-                      <div><br /></div>
-                      <div>
-                        <a
-                          href="https://www.canarytechnologies.com/press/canary-technologies-named-winner-of-3-2023-hoteltechawards"
-                          ><img
-                            src="https://resources.canarytechnologies.com/rs/753-LTW-752/images/awardsbanner.jpg"
-                            alt="Top Rated Hotel App"
-                            height="301"
-                            width="600"
-                            style="
-                              display: block;
-                              margin-left: auto;
-                              margin-right: auto;
-                            "
-                        /></a>
-                      </div>
-                    </div>
-                    <script>
-                      // <![CDATA[
-                      window.addEventListener("message", function (event) {
-                        var action = Object.keys(event.data)[0];
-                        var label = Object.values(event.data)[0];
-                        if (label == "booked") {
-                          dataLayer.push({ event: "cpMeetingBooked" });
-                        }
-                      });
-                      // ]]>
-                    </script>
-                    <script
-                      src="https://resources.canarytechnologies.com/rs/753-LTW-752/images/cppreloader.js"
-                      type="text/javascript"
-                    ></script>
-
-                    <style>
-                      .eVmrDv {
-                        position: relative;
-                        top: 6rem !important;
-                      }
-                    </style>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -1903,11 +1599,6 @@
                 physical key in the lobby.
               </div>
             </div>
-            <a
-              href="https://resources.canarytechnologies.com/get-mobile-checkin-demo.html"
-              class="button-main button-new w-inline-block"
-              ><div>Learn more</div></a
-            >
           </div>
         </div>
       </div>
@@ -1953,13 +1644,6 @@
                     eliminating long lines.
                   </p>
                 </div>
-              </div>
-              <div class="position-relative top-20 z-index-10">
-                <a
-                  href="https://resources.canarytechnologies.com/get-mobile-checkin-demo.html"
-                  class="button-main button-new w-button"
-                  >Learn More</a
-                >
               </div>
             </div>
           </div>
@@ -2347,11 +2031,6 @@
               guest satsifactoin &amp; reduces chargebacks &amp; fraud
             </h2>
           </div>
-          <a
-            href="https://resources.canarytechnologies.com/get-mobile-checkin-demo.html"
-            class="button-main button-new wide w-inline-block"
-            ><div>Get Demo</div></a
-          >
         </div>
       </div>
     </section>
@@ -2553,75 +2232,7 @@
         </div>
       </div>
     </div>
-    <section class="section-main spacing-80-0-70-0">
-      <div class="container-large">
-        <div class="margin-box bottom-50">
-          <div class="text-align-center">
-            <h2 class="text-size-36">Helpful Resources for Hoteliers</h2>
-          </div>
-        </div>
-        <div class="max-width-1228 margin-centered">
-          <div class="gridbox col-3 tablet-col-1 grid-center tablet-gap-48">
-            <div
-              id="w-node-_856f3d63-0449-fca9-ba48-13ccdbbbab56-c108fb41"
-              class="max-width-400 text-align-center margin-0"
-            >
-              <div class="margin-box bottom-32 tablet-bottom-16">
-                <img
-                  src="https://assets-global.website-files.com/5c6d1141d51c77692887d502/654e96ecc8ee00d4088181b9_checkinR-1-111023.webp"
-                  loading="lazy"
-                  alt="Hotel Checkin with Kiosks"
-                  height="217"
-                />
-              </div>
-              <a
-                href="https://www.canarytechnologies.com/post/self-check-in-kiosks-for-hotels-guide"
-                class="text-size-18 text-weight-bold all-caps underline"
-                >The 2023 Guide to Self-Check-in Kiosks for Hotels<br
-              /></a>
-            </div>
-            <div
-              id="w-node-_856f3d63-0449-fca9-ba48-13ccdbbbab5c-c108fb41"
-              class="max-width-400 text-align-center margin-0"
-            >
-              <div class="margin-box bottom-32 tablet-bottom-16">
-                <img
-                  src="https://assets-global.website-files.com/5c6d1141d51c77692887d502/654e970d04102146bdc4ee40_checkinr-2-111023.webp"
-                  loading="lazy"
-                  alt="Digital Hotel Check-in Works"
-                  height="217"
-                  class="image-11118"
-                />
-              </div>
-              <a
-                href="https://www.canarytechnologies.com/post/digital-check-in"
-                class="text-size-18 text-weight-bold all-caps underline"
-                >Why Digital Check-In Is So Important to Hotels &amp; Their
-                Guests<br
-              /></a>
-            </div>
-            <div
-              id="w-node-_856f3d63-0449-fca9-ba48-13ccdbbbab62-c108fb41"
-              class="max-width-400 text-align-center margin-0"
-            >
-              <div class="margin-box bottom-32 tablet-bottom-16">
-                <img
-                  src="https://assets-global.website-files.com/5c6d1141d51c77692887d502/654e971dfbeaa581693e73f3_checkinr-3-111023.webp"
-                  loading="lazy"
-                  alt="Hotel Front Desk Checklist"
-                  height="217"
-                />
-              </div>
-              <a
-                href="https://www.canarytechnologies.com/post/hotel-front-desk-checklist"
-                class="text-size-18 text-weight-bold all-caps underline"
-                >A Complete Daily Hotel Front Desk Checklist<br
-              /></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+
     <section
       class="section-main spacing-110-110 bg-color-lightblue tablet-spacing-80-80"
     >
